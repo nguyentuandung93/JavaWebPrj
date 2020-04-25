@@ -1,0 +1,17 @@
+create database prj_db;
+use prj_db;
+CREATE TABLE `m_user` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `username` varchar(32) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
+  `password` varchar(32) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
+  `name` varchar(128) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `email` varchar(128) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `image_real_name` varchar(1024) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `image_name` varchar(1024) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `regist_date` datetime DEFAULT NULL,
+  `update_user_id` int DEFAULT NULL,
+  `update_date` datetime DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='ÉÜÅ[ÉUÅ[ÉeÅ[ÉuÉã';
+
+INSERT INTO `m_user` VALUES (5,'adminadmin','adminadmin',NULL,NULL,'190e8c4bdccfa670397c2799c674e18b.jpg','190e8c4bdccfa670397c2799c674e18b.jpg','2020-04-23 18:38:40',NULL,NULL),(6,'dungdung','dungdung',NULL,NULL,'abb145df31fedad7e614f814c0ed9a58.jpg','abb145df31fedad7e614f814c0ed9a58.jpg','2020-04-23 19:16:45',NULL,NULL),(7,'dung123','dung123',NULL,NULL,'MjAyMDA0MjQxNjQyMzBfdHVhbmR1bmdAMV90dWFuZHVuZw==.jpg','20200424164230_tuandung@1.jpg','2020-04-24 16:42:31',NULL,NULL),(8,'admin123','admin123',NULL,NULL,'MjAyMDA0MjQxNzI2NDlfdHVhbmR1bmdAMV90dWFu.jpg','20200424172649_tuandung@1.jpg','2020-04-24 17:26:49',NULL,NULL),(9,'xxxxxx','xxxxxx',NULL,NULL,'MjAyMDA0MjQxOTIxMzZfdHVhbmR1bmdAMV94eHh4eHg=.jpg','20200424192136_tuandung@1.jpg','2020-04-24 19:21:36',NULL,NULL),(10,'a1a2a3a4a5a6a7a8a9a1a2a3a4a5a6a7','dung123',NULL,NULL,'MjAyMDA0MjQxOTIzNTZf5bel6Jek44GL44GqX2ExYTJhM2E0YTVhNmE3YThhOWExYTJhM2E0YTVhNmE3.jpg','20200424192356_çHì°Ç©Ç».jpg','2020-04-24 19:23:56',NULL,NULL),(11,'dung12345','a1a2a3a4a5a6a7a8a9a1a2a3a4a5a6a7',NULL,NULL,'MjAyMDA0MjQxOTI0NTVf5bel6Jek44GL44GqX2R1bmcxMjM0NQ==.jpg','20200424192455_çHì°Ç©Ç».jpg','2020-04-24 19:24:55',NULL,NULL),(12,'a1a2a3a4a5a6a7a8a9a1a2a3a4a5a6a','dung123',NULL,NULL,'MjAyMDA0MjQxOTI1Mzlf5bel6Jek44GL44GqX2ExYTJhM2E0YTVhNmE3YThhOWExYTJhM2E0YTVhNmE=.jpg','20200424192539_çHì°Ç©Ç».jpg','2020-04-24 19:25:39',NULL,NULL),(13,'admindung','admindung',NULL,NULL,'MjAyMDA0MjQxOTM2NDhf5bel6Jek44GL44GqX2FkbWluZHVuZw==.jpg','20200424193648_çHì°Ç©Ç».jpg','2020-04-24 19:36:48',NULL,NULL);
