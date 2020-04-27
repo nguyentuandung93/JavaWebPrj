@@ -8,31 +8,36 @@
 	<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/css/login.css">
 	<script type="text/javascript" src="<%=request.getContextPath()%>/js/jquery-3.4.1.min.js"></script>
 	<script type="text/javascript" src="<%=request.getContextPath()%>/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="<%=request.getContextPath()%>/js/common.js"></script>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta name="robots" content="noindex, nofollow"/>
 	<title>ログイン画面</title>
 </head>
 <body>
-	<%-- <jsp:include page="<%=request.getContextPath()%>/common/login_header.jsp"></jsp:include> --%>
-	<div id="login">
-		<div class="container col-md-8 col-md-offset-3">
-			<h1>ログイン</h1>
-			<form id="frm_login" action="<%=request.getContextPath()%>/login" method="post">
-				<div class="form-group">
-					<label for="username">ユーザ名</label>
-					<input type="text" class="form-control" id="username" name="username">
-				</div>
-				<div class="form-group">
-					<label for="password">パスワード</label>
-					<input type="password" class="form-control" id="password" name="password" required>
-				</div>
-				<a href="javascript:login()" type="button" class="btn btn-primary">ログイン</a>
-				<p>登録してない方はこちらから<a href="javascript:register_form()">ユーザー登録</a></p>
-			</form>
-		</div>
-	</div>
-	<%-- <jsp:include page="<%=request.getContextPath()%>/common/login_footer.jsp"></jsp:include> --%>
+	<form class="form-signin" id="frm_login" action="<%=request.getContextPath()%>/login" method="post">
+      <div class="text-center mb-4">
+        <img class="mb-4" src="" alt="" width="72" height="72">
+        <h1 class="h3 mb-3 font-weight-normal">ログイン</h1>
+        <p>Wellcome to JavaWebPrj!</p>
+      </div>
+      <div class="form-label-group">
+        <input type="text" id="username" name="username" class="form-control" autocomplete="off" required autofocus>
+        <label for="username">ユーザー名</label>
+      </div>
+      <div class="form-label-group">
+        <input type="password" id="password" name="password" class="form-control" autocomplete="off" required>
+        <label for="password">パスワード</label>
+      </div>
+      <!-- <div class="checkbox mb-3">
+        <label>
+          <input type="checkbox" value="remember-me"> Remember me
+        </label>
+      </div> -->
+      <a href="javascript:login()" type="button" class="btn btn-lg btn-primary btn-block">ログイン</a>
+      <p class="mt-4 mb-3 text-muted text-center">登録してない方はこちらから<a href="javascript:register_form()">ユーザー登録</a></p>
+    </form>
+	<jsp:include page="../common/footer.jsp"></jsp:include>
 </body>
 <script>
 	function login() {

@@ -14,35 +14,57 @@
 	<title>ユーザー登録画面</title>
 </head>
 <body>
-	<%-- <jsp:include page="<%=request.getContextPath()%>/common/login_header.jsp"></jsp:include> --%>
-	<div id="login">
-		<div class="container col-md-8 col-md-offset-3">
-			<h1>ユーザー登録</h1>
-			<form id="frm_register" action="<%=request.getContextPath()%>/register" method="post" enctype="multipart/form-data">
-				<div class="form-group">
-					<label for="username">ユーザ名</label>
-					<input type="text" class="form-control" id="username" name="username" autocomplete="off">
-				</div>
-				<div class="form-group">
-					<label for="password">パスワード</label>
-					<input type="password" class="form-control" id="password" name="password" autocomplete="off">
-				</div>
-				<div class="form-group">
-					<label for="re_password">パスワード確認</label>
-					<input type="password" class="form-control" id="re_password" name="re_password" autocomplete="off">
-				</div>
-				<div class="form-group">
-					<label for="image_file">アップロード画像</label>
-					<input type="file" class="form-control" id="image_file" name="image_file" accept="image/*">
-				</div>
-				<a href="javascript:register()" type="button" class="btn btn-primary">登録</a>
-				<p>既に登録した方はこちらから<a href="javascript:login_form()">ログイン</a></p>
-			</form>
-		</div>
-	</div>
-	<%-- <jsp:include page="<%=request.getContextPath()%>/common/login_footer.jsp"></jsp:include> --%>
+	<form class="form-signin" id="frm_register" action="<%=request.getContextPath()%>/register" method="post" enctype="multipart/form-data">
+      <div class="text-center mb-4">
+        <img class="mb-4" src="" alt="" width="72" height="72">
+        <h1 class="h3 mb-3 font-weight-normal">ユーザー登録</h1>
+        <p>JavaWebPrjを始めましょう!</p>
+      </div>
+      <div class="form-group">
+        <label for="username">ユーザー名</label>
+        <input type="text" id="username" name="username" class="form-control" autocomplete="off" required autofocus>
+      </div>
+      <div class="form-group">
+        <label for="password">パスワード</label>
+        <input type="password" id="password" name="password" class="form-control" autocomplete="off" required>
+      </div>
+      <div class="form-group">
+        <label for="re_password">パスワード確認</label>
+        <input type="password" id="re_password" name="re_password" class="form-control" autocomplete="off" required>
+      </div>
+      <div class="form-group">
+        <label for="image_file">アップロード画像</label>
+        <input type="file" id="image_file" name="image_file" class="form-control" autocomplete="off" accept="image/*">
+      </div>
+      <a href="javascript:register()" type="button" class="btn btn-lg btn-primary btn-block">登録</a>
+      <p class="mt-4 mb-3 text-muted text-center">既に登録した方はこちらから<a href="javascript:login_form()">ログイン</a></p>
+    </form>
+	<jsp:include page="../common/footer.jsp"></jsp:include>
 </body>
 <script>
+	$(document).ready(function() {
+		$("#username").on('blur', function() {
+			var val = $("#username").val();
+			val = val.replace(/[Ａ-Ｚａ-ｚ０-９]/g,function(s){return String.fromCharCode(s.charCodeAt(0)-0xFEE0)});
+			val = val.replace(/[ぁ-んァ-ンｧ-ﾝﾞﾟ一-龥]/g, '');
+			val = $.trim(val);
+			$("#username").val(val);
+		});
+		$("#password").on('blur', function() {
+			var val = $("#password").val();
+			val = val.replace(/[Ａ-Ｚａ-ｚ０-９]/g,function(s){return String.fromCharCode(s.charCodeAt(0)-0xFEE0)});
+			val = val.replace(/[ぁ-んァ-ンｧ-ﾝﾞﾟ一-龥]/g, '');
+			val = $.trim(val);
+			$("#password").val(val);
+		});
+		$("#re_password").on('blur', function() {
+			var val = $("#re_password").val();
+			val = val.replace(/[Ａ-Ｚａ-ｚ０-９]/g,function(s){return String.fromCharCode(s.charCodeAt(0)-0xFEE0)});
+			val = val.replace(/[ぁ-んァ-ンｧ-ﾝﾞﾟ一-龥]/g, '');
+			val = $.trim(val);
+			$("#re_password").val(val);
+		});
+	});
 	function register() {
 		if (check_input() == 0) {
 			$("#frm_register").submit();

@@ -62,8 +62,6 @@ public class RegistController extends HttpServlet {
 	        if (fileItems != null && fileItems.size() > 0) {
 	        	for (FileItem item : fileItems) {
 		            if (item.isFormField()) { // ユーザー名、パスワード
-		            	System.out.println(item.getFieldName());
-		            	System.out.println(item.getString());
 		            	if (item.getFieldName().equals("username")) {
 		                	userName = item.getString();
 		                }
@@ -95,8 +93,6 @@ public class RegistController extends HttpServlet {
 	    	msg = e.toString() + "のエラーが発生しました。";
 	    }
 		if (status) {
-			System.out.println("username:" + userName);
-			System.out.println("pass:" + passWord);
 			try {
 				if (userDao.issetUser(userName)) {
 					status = false;
